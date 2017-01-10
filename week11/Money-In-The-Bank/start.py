@@ -11,7 +11,7 @@ def main_menu():
 
         if command == 'register':
             username = input("Enter your username: ")
-            password = input_password()
+            password = set_password()
 
             sql_manager.register(username, password)
 
@@ -19,7 +19,7 @@ def main_menu():
 
         elif command == 'login':
             username = input("Enter your username: ")
-            password = set_password(username)
+            password = input_password(username)
 
             logged_user = sql_manager.login(username, password)
 
