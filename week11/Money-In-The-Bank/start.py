@@ -1,5 +1,6 @@
 import sql_manager
 import getpass
+import hashlib
 
 
 def main_menu():
@@ -10,7 +11,7 @@ def main_menu():
 
         if command == 'register':
             username = input("Enter your username: ")
-            password = getpass.getpass("Enter your password: ")
+            password = input_password()
 
             sql_manager.register(username, password)
 
@@ -18,7 +19,7 @@ def main_menu():
 
         elif command == 'login':
             username = input("Enter your username: ")
-            password = getpass.getpass("Enter your password: ")
+            password = set_password(username)
 
             logged_user = sql_manager.login(username, password)
 
@@ -36,6 +37,31 @@ def main_menu():
             break
         else:
             print("Not a valid command")
+            
+            
+def validate_password(func):
+    def inner(username):
+        if not validaors.pass_is_valid(paswword, username):
+            inner(username)
+        return input_password(username)
+    return func(username)
+
+
+def hash_password(func):
+    def inner(*args)
+        valid_pass = set_password(*args)
+        hash_pass = hashlib.sha256(result).hexdigest()
+        return hash_pass
+    return inner   
+
+@validate_password
+@hash_password
+def set_password(username):
+    return getpass.getpass("Enter your password: ")
+
+@hash_password
+def input_password():
+    return getpass.getpass("Enter your password: ")
 
 
 def logged_menu(logged_user):
