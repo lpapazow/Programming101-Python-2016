@@ -1,7 +1,8 @@
 class Client():
-    def __init__(self, id, username, balance=None, message=None, email=None):
+    def __init__(self, id, username, password=None, balance=None, message=None, email=None):
         self.__username = username
         self.__balance = balance
+        self.__passwrod = password
         self.__id = id
         self.__message = message
         self.__email = email
