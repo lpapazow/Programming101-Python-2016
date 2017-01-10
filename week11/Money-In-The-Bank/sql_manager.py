@@ -34,3 +34,7 @@ def login(username, password):
         return Client(user[0], user[1], user[2], user[3])
     else:
         return False
+
+def show_email(username):
+    cursor.execute(sql_manage_queries.SELECT_USER_EMAIL)
+    return cursor.fetchone()
