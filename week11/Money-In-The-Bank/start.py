@@ -1,6 +1,8 @@
 import sql_manager
+import sql_manage_queries
 import getpass
 import hashlib
+import smtplib
 
 
 def main_menu():
@@ -35,9 +37,21 @@ def main_menu():
 
         elif command == 'exit':
             break
+            
+        elif "send-reset-password" in command:
+            user_email = sql_manager.show_email()
+            send_mail(user)
+            
+        
+        elif "reset-password" in command:
+            
+        
         else:
             print("Not a valid command")
             
+def send_mail(user):
+    server = smtplib.SMTP('smtp.gmail.com', '587', 'localhost')
+
             
 def validate_password(func):
     def inner(username):
