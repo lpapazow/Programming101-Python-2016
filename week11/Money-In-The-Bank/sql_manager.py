@@ -1,5 +1,6 @@
 import sqlite3
 from client import Client
+from sql_manage_queries import *
 
 conn = sqlite3.connect("bank.db")
 cursor = conn.cursor()
