@@ -27,3 +27,16 @@ class Client():
     
     def get_password(self):
         return self.__password
+    
+    def deposit(self, amount):
+        self.__balance += amount
+        
+    def withdraw(self, amount):
+        if self.__balance < amount:
+            print("You can't withdraw!")
+            return False
+        self.__balance -= amount
+        return True
+    
+    def display_balance(self):
+        print("Your current balance is {0}".format(self.__balance)
